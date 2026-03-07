@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap — cambia la URL por la URL real de Vercel cuando despliegues
-Sitemap: https://dental-clinic-demo.vercel.app/sitemap.xml
+Sitemap: https://dental-clinic-demo-sand.vercel.app/sitemap.xml
