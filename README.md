@@ -1,59 +1,139 @@
-# DentalClinicDemo
+# Dental Clinic Demo (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+A portfolio-ready **single-page landing** for a fictional dental clinic (“DentaCare Clinic”), built with modern **Angular (standalone components)** and **Tailwind CSS**. The project focuses on clean UI composition, reusable sections, and a smooth scrolling experience.
 
-## Development server
+> Note: This is a demo project for showcase/learning purposes. It is **not** a real clinic website.
 
-To start a local development server, run:
+---
 
+## Features
+
+- Single-page landing layout with section-based architecture:
+  - Hero
+  - Services
+  - About
+  - Stats (animated counters)
+  - Team
+  - Testimonials
+  - Gallery
+  - Contact
+- Standalone Angular components (no NgModules for feature composition)
+- Shared UI components (Navbar, Footer, WhatsApp floating button)
+- Responsive navigation (desktop + mobile menu)
+- Tailwind CSS styling
+- Unit testing via Angular test runner (Vitest configured by Angular build tooling)
+
+---
+
+## Tech Stack
+
+- **Angular** (standalone APIs, `bootstrapApplication`)
+- **TypeScript**
+- **Tailwind CSS** + PostCSS
+- **pnpm** as package manager
+- **Vitest** for unit tests (through `ng test`)
+- Optional deployment configuration via **Vercel** (`vercel.json`)
+
+---
+
+## Project Structure (high level)
+
+- `src/main.ts`  
+  Application bootstrap (`bootstrapApplication`).
+
+- `src/app/app.ts`  
+  Root shell component that renders:
+  - `Navbar`
+  - `Home` (all landing sections)
+  - `Footer`
+  - Floating WhatsApp button
+
+- `src/app/features/home/`  
+  Home “orchestrator” component + individual section components.
+
+- `src/app/shared/`  
+  Shared components used across the app (navbar/footer/buttons).
+
+- `public/`  
+  Static assets served by Angular build configuration.
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js (recommended: current LTS)
+- pnpm (the project declares a `packageManager` in `package.json`)
+
+### Install
 ```bash
-ng serve
+pnpm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Run locally (development)
 ```bash
-ng generate component component-name
+pnpm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Then open:
+- `http://localhost:4200/`
+
+The app will reload on file changes.
+
+---
+
+## Common Scripts
 
 ```bash
-ng generate --help
+# Start dev server
+pnpm start
+
+# Production build
+pnpm build
+
+# Watch build (development configuration)
+pnpm watch
+
+# Unit tests
+pnpm test
 ```
 
-## Building
+---
 
-To build the project run:
+## Build
 
 ```bash
-ng build
+pnpm build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Build output is generated under `dist/`.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Testing
 
 ```bash
-ng test
+pnpm test
 ```
 
-## Running end-to-end tests
+Runs unit tests via Angular’s test builder (Vitest).
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## Deployment
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+This repository includes `vercel.json`, which can be used to deploy the app on Vercel.
 
-## Additional Resources
+General approach:
+1. Import the repository in Vercel
+2. Install command: `pnpm install`
+3. Build command: `pnpm build`
+4. Output directory: `dist` (may vary depending on Angular configuration)
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+If you encounter a mismatch for the output folder, check `angular.json` build options.
+
+---
+
+## License
+
+No license specified. If you intend others to reuse or modify this project, consider adding a license file (e.g., MIT).
