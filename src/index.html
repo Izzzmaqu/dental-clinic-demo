@@ -1,13 +1,156 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>DentalClinicDemo</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- =========================================================
+         TÍTULO — El texto que aparece en la pestaña del navegador
+         y como título en los resultados de Google. Máximo 60 chars.
+         ========================================================= -->
+    <title>DentaCare Clinic — Your Smile, Our Passion</title>
+    <base href="/" />
+
+    <!-- Viewport responsivo — obligatorio para móviles y para
+         que Google no penalice el sitio en mobile-first indexing -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- =========================================================
+         SEO BÁSICO
+         description: snippet que muestra Google en los resultados.
+         Max 155-160 caracteres. Incluye palabras clave naturales.
+         keywords: ya no afectan el ranking pero no hacen daño.
+         robots: permite que los crawlers indexen e indexen links.
+         canonical: evita penalización por contenido duplicado,
+                    apunta siempre a la URL base de producción.
+         ========================================================= -->
+    <meta
+      name="description"
+      content="DentaCare Clinic offers professional dental care: cleanings, teeth whitening, orthodontics, implants, and cosmetic dentistry. Book your free consultation today."
+    />
+    <meta
+      name="keywords"
+      content="dental clinic, dentist, teeth whitening, orthodontics, dental implants, cosmetic dentistry, DentaCare"
+    />
+    <meta name="robots" content="index, follow" />
+    <!-- IMPORTANTE: Cambia esta URL por la URL real de Vercel cuando despliegues -->
+    <link rel="canonical" href="https://dental-clinic-demo.vercel.app/" />
+
+    <!-- =========================================================
+         OPEN GRAPH (OG) — Controla cómo se ve el sitio cuando
+         alguien lo comparte en Facebook, LinkedIn, WhatsApp, etc.
+         og:image: imagen que aparece en la preview del link.
+                   Debe ser 1200×630px mínimo. Usamos Unsplash aquí.
+         ========================================================= -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DentaCare Clinic" />
+    <meta property="og:title" content="DentaCare Clinic — Your Smile, Our Passion" />
+    <meta
+      property="og:description"
+      content="Professional dental care with a personal touch. Cleanings, orthodontics, implants, whitening and more. Book your free consultation today."
+    />
+    <!-- IMPORTANTE: Cambia esta URL por la URL real de Vercel cuando despliegues -->
+    <meta property="og:url" content="https://dental-clinic-demo.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&h=630&q=80&auto=format&fit=crop"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="DentaCare Clinic — Modern dental treatment room" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- =========================================================
+         TWITTER CARD — Controla la preview en Twitter/X.
+         summary_large_image muestra la imagen en tamaño grande.
+         ========================================================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DentaCare Clinic — Your Smile, Our Passion" />
+    <meta
+      name="twitter:description"
+      content="Professional dental care with a personal touch. Book your free consultation today."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&h=630&q=80&auto=format&fit=crop"
+    />
+
+    <!-- =========================================================
+         JSON-LD — Datos estructurados para Google.
+         Le dice a Google que esto es un negocio local (dentista),
+         lo que permite aparecer en Google Maps, Knowledge Panel
+         y resultados enriquecidos (rich results).
+         Schema.org/Dentist extiende LocalBusiness con campos
+         específicos para profesionales de salud dental.
+         ========================================================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "DentaCare Clinic",
+        "description": "Professional dental care with a personal touch. Cleanings, orthodontics, implants, whitening and more.",
+        "url": "https://dental-clinic-demo.vercel.app/",
+        "logo": "https://dental-clinic-demo.vercel.app/favicon.ico",
+        "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80",
+        "telephone": "+525512345678",
+        "email": "hello@dentacare.com",
+        "priceRange": "$$",
+        "currenciesAccepted": "MXN, USD",
+        "paymentAccepted": "Cash, Credit Card, Insurance",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Insurgentes Sur 1234",
+          "addressLocality": "Ciudad de México",
+          "addressRegion": "CDMX",
+          "postalCode": "03100",
+          "addressCountry": "MX"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "19.3769",
+          "longitude": "-99.1580"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "15:00"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "247",
+          "bestRating": "5"
+        },
+        "hasMap": "https://maps.google.com/?q=Av.+Insurgentes+Sur+1234+CDMX",
+        "sameAs": [
+          "https://www.facebook.com/dentacare",
+          "https://www.instagram.com/dentacare"
+        ]
+      }
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Google Fonts — Inter: tipografía limpia usada en toda la landing.
+         preconnect reduce la latencia al pre-establecer la conexión
+         con los servidores de Google Fonts antes de descargar la fuente. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Punto de entrada de la aplicación Angular -->
+    <app-root></app-root>
+  </body>
 </html>

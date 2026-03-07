@@ -1,3 +1,165 @@
-/* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   GLOBAL STYLES — DentaCare Clinic
+   Importa Tailwind 4, define la paleta de colores personalizada,
+   configura la fuente, establece los estilos base del documento
+   y declara todas las animaciones CSS usadas en la landing.
+   ============================================================ */
 
 @import 'tailwindcss';
+
+/* ------------------------------------------------------------
+   @theme — Paleta de colores personalizada de DentaCare.
+   En Tailwind 4 los tokens se definen con variables CSS dentro
+   de @theme. Esto hace que Tailwind genere utilidades como
+   bg-brand-500, text-brand-900, border-brand-100, etc.
+   ------------------------------------------------------------ */
+@theme {
+  /* Azul marino profundo — fondos oscuros, navbar, hero gradient */
+  --color-brand-900: #0c2461;
+  /* Azul oscuro — hover states, bordes activos */
+  --color-brand-700: #1e3a8a;
+  /* Azul principal — botones primarios, CTAs, íconos activos */
+  --color-brand-500: #2563eb;
+  /* Azul claro — fondos suaves de secciones alternas */
+  --color-brand-100: #dbeafe;
+  /* Superficie global — fondo del body ligeramente azulado */
+  --color-surface: #f8faff;
+  /* Color de texto principal oscuro */
+  --color-ink-900: #0f172a;
+  /* Color de texto secundario / subtítulos */
+  --color-ink-500: #475569;
+  /* Líneas divisorias y bordes sutiles */
+  --color-ink-200: #e2e8f0;
+
+  /* Familia tipográfica principal — Inter con fallback al sistema */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ------------------------------------------------------------
+   BASE — Estilos por defecto aplicados a todo el documento.
+   Se usa la capa @layer base de Tailwind para dar estructura
+   tipográfica consistente sin necesidad de clases extra.
+   ------------------------------------------------------------ */
+@layer base {
+  html {
+    /* Desplazamiento suave cuando se hacen clic en anclas internas */
+    scroll-behavior: smooth;
+    /* Optimización de fuentes para renders más nítidos en pantallas HiDPI */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    /* Fondo global ligeramente azulado para cohesión visual */
+    background-color: var(--color-surface);
+    /* Color de texto por defecto */
+    color: var(--color-ink-900);
+    /* Fuente base del proyecto */
+    font-family: var(--font-sans);
+  }
+
+  /* Elimina el margen cero en párrafos dentro de secciones de contenido */
+  p {
+    line-height: 1.75;
+  }
+}
+
+/* ------------------------------------------------------------
+   @layer components — Clases reutilizables que combinan
+   múltiples utilidades de Tailwind en una sola clase semántica.
+   Esto reduce repetición en los templates HTML.
+   ------------------------------------------------------------ */
+@layer components {
+  /* Botón primario — azul sólido, usado en CTAs principales */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-brand-700 hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+  }
+
+  /* Botón secundario — contorno blanco, usado sobre fondos oscuros */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-brand-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+  }
+
+  /* Botón ghost — borde azul, usado sobre fondos blancos */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-500 px-7 py-3 text-sm font-semibold text-brand-500 transition-all duration-300 hover:bg-brand-500 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+  }
+
+  /* Contenedor de sección — centra el contenido y aplica padding
+     horizontal consistente en todos los breakpoints */
+  .section-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Cabecera de sección — bloque de título + subtítulo reutilizable */
+  .section-header {
+    @apply mb-12 text-center;
+  }
+
+  /* Etiqueta pequeña encima del título — "NUESTROS SERVICIOS", etc. */
+  .section-label {
+    @apply mb-3 inline-block text-xs font-bold uppercase tracking-widest text-brand-500;
+  }
+
+  /* Título principal de cada sección */
+  .section-title {
+    @apply text-3xl font-bold text-ink-900 sm:text-4xl;
+  }
+
+  /* Subtítulo descriptivo debajo del título */
+  .section-subtitle {
+    @apply mt-4 text-base text-ink-500 sm:text-lg;
+  }
+
+  /* Card base — fondo blanco, sombra sutil, esquinas redondeadas */
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink-200 transition-shadow duration-300 hover:shadow-md;
+  }
+}
+
+/* ------------------------------------------------------------
+   @layer utilities — Animaciones de entrada (fade-in-up) usadas
+   por la directiva AnimateOnScroll para revelar secciones
+   cuando entran al viewport del usuario.
+   ------------------------------------------------------------ */
+@layer utilities {
+  /* Estado inicial — el elemento está invisible y desplazado 24px
+     hacia abajo. La directiva aplica esta clase por defecto. */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  /* Estado final — cuando el IntersectionObserver detecta que
+     el elemento entró al viewport, la directiva añade esta clase
+     y el elemento se desvanece suavemente hacia su posición normal. */
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Variante con retraso de 150ms — para escalonar animaciones
+     en grids de cards (2do elemento) */
+  .animation-delay-150 {
+    transition-delay: 150ms;
+  }
+
+  /* Variante con retraso de 300ms — para escalonar animaciones
+     en grids de cards (3er elemento) */
+  .animation-delay-300 {
+    transition-delay: 300ms;
+  }
+
+  /* Variante con retraso de 450ms — para escalonar animaciones
+     en grids de cards (4to elemento) */
+  .animation-delay-450 {
+    transition-delay: 450ms;
+  }
+
+  /* Variante con retraso de 600ms — para escalonar animaciones
+     en grids (5to elemento) */
+  .animation-delay-600 {
+    transition-delay: 600ms;
+  }
+}

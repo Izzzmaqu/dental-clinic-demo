@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!--
+    sitemap.xml — Mapa del sitio para Google Search Console.
+    Para una landing de una sola página solo hay 1 URL.
+    Cambia la URL por la URL real de Vercel cuando despliegues.
+  -->
+  <url>
+    <loc>https://dental-clinic-demo.vercel.app/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
