@@ -1,6 +1,36 @@
 # DentalClinicDemo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+**DentalClinicDemo** es una landing page moderna y responsive para una clínica dental llamada **DentaCare**. Fue desarrollada con Angular como proyecto de demostración (portfolio/demo) que muestra buenas prácticas para crear aplicaciones web de alto rendimiento y accesibles.
+
+## ¿Qué hace este proyecto?
+
+Este sitio web de una sola página (SPA) está diseñado para atraer y convertir pacientes de odontología. Incluye las siguientes secciones:
+
+- **Hero** — Primera impresión con título principal, llamadas a la acción y efectos de entrada animados.
+- **Servicios** — Muestra 6 servicios dentales en una cuadrícula con tarjetas animadas.
+- **Nosotros** — Historia de la empresa, credenciales y valores.
+- **Estadísticas** — Números clave (pacientes atendidos, años de experiencia, satisfacción).
+- **Equipo** — Tarjetas de los profesionales con foto, nombre y especialidad.
+- **Testimonios** — Reseñas de pacientes con calificaciones.
+- **Galería** — Fotos del antes/después, interior de la clínica y equipamiento.
+- **Contacto** — Información de contacto, CTA de WhatsApp, horarios y ubicación.
+
+### Componentes compartidos
+
+- **Navbar fija** con navegación suave entre secciones y menú hamburguesa para móvil.
+- **Footer** con enlaces y datos de la empresa.
+- **Botón flotante de WhatsApp** siempre visible para contacto rápido.
+- **Directiva AnimateOnScroll** que anima los elementos al hacer scroll usando `IntersectionObserver`.
+
+### Tecnologías utilizadas
+
+| Categoría | Tecnología |
+|-----------|-----------|
+| Framework | Angular 21 (componentes standalone) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS 4 |
+| Pruebas | Vitest |
+| Despliegue | Vercel |
 
 ## Development server
 
