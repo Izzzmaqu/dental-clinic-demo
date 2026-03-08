@@ -208,7 +208,7 @@ export class ContactComponent {
   /* URL de WhatsApp con número de demostración y mensaje pre-cargado.
      En producción se reemplazaría con el número real de la clínica. */
   readonly whatsappUrl =
-    'https://wa.me/506xxxxxxx?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20consultation%20at%20DentaCare%20Clinic.';
+    'https://wa.me/50600000000?text=Hello!%20I%27d%20like%20to%20schedule%20a%20free%20consultation%20at%20DentaCare%20Clinic.';
 
   /* Items de información de contacto.
      href: null significa que el valor no es clicable.

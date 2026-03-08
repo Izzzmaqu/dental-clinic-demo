@@ -108,7 +108,7 @@ export class WhatsappButtonComponent {
      Formato: https://wa.me/{número}?text={mensaje}
      El mensaje indica que es para agendar una cita. */
   readonly whatsappUrl =
-    'https://wa.me/5200000000000?text=Hello!%20I%27d%20like%20to%20schedule%20an%20appointment%20at%20DentaCare%20Clinic.';
+    'https://wa.me/50600000000?text=Hello!%20I%27d%20like%20to%20schedule%20an%20appointment%20at%20DentaCare%20Clinic.';
 
   /* HostListener — escucha el evento scroll del window.
      Cuando el usuario baja más de 300px, activa la visibilidad
